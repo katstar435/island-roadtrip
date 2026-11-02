@@ -30,7 +30,6 @@ export function createStopCard(stop: Stop, isPlanned: boolean): HTMLLIElement {
   const article = createElement('article', isPlanned ? 'stop-card is-planned' : 'stop-card');
   const headingId = `ziel-${stop.id}`;
   article.setAttribute('aria-labelledby', headingId);
-  article.dataset.category = stop.category;
 
   const header = createElement('header');
   const heading = createElement('h3', undefined, stop.name);

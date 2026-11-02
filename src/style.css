@@ -1,589 +1,295 @@
-/* ---------- Design-Tokens ---------- */
+/* Farben der isländischen Flagge */
 :root {
-  --color-bg: #f4f1ea;
-  --color-surface: #ffffff;
-  --color-surface-soft: #eef4f5;
-  --color-text: #1b2a2f;
-  --color-muted: #4a5a60;
-  --color-border: #ddd7cb;
-  --color-primary: #0f5c6e;
-  --color-primary-strong: #0a4250;
-  --color-on-primary: #ffffff;
-  --color-accent: #b4441f;
-  --color-header: #0d1b2a;
-  --color-on-header: #e8eef2;
-  --color-aurora: #5eead4;
-  --color-tag: #e3eef0;
-
-  /* Akzentfarben je Kategorie (nur für Flächen und Linien, nicht für Text) */
-  --cat-wasserfall: #2b6cb0;
-  --cat-gletscher: #4fa3c7;
-  --cat-kueste: #475569;
-  --cat-geothermie: #c2410c;
-  --cat-nationalpark: #3f7d4f;
-  --cat-berg: #7c5ea8;
-
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-
-  --radius: 0.875rem;
-  --radius-small: 0.5rem;
-  --shadow-sm: 0 1px 2px rgba(13, 27, 42, 0.06), 0 1px 3px rgba(13, 27, 42, 0.08);
-  --shadow-md: 0 4px 10px rgba(13, 27, 42, 0.08), 0 12px 24px rgba(13, 27, 42, 0.08);
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2.5rem;
-  --space-5: 4rem;
-  --max-width: 76rem;
+  --blau: #02529c;
+  --blau-dunkel: #013d75;
+  --blau-hell: #e8f0f8;
+  --rot: #dc1e35;
+  --text: #222222;
+  --grau: #555555;
+  --rahmen: #cccccc;
 }
 
-/* ---------- Basis ---------- */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  color: var(--color-text);
-  background: var(--color-bg);
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-display);
-  line-height: 1.15;
-  margin: 0 0 var(--space-1);
-  letter-spacing: -0.01em;
-}
-
-h1 {
-  font-size: clamp(2.1rem, 4vw + 1rem, 3.5rem);
-}
-
-h2 {
-  font-size: clamp(1.6rem, 2vw + 1rem, 2.1rem);
-}
-
-h3 {
-  font-size: 1.3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: #ffffff;
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--blau);
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
+/* Skip-Link ist nur sichtbar, wenn er per Tastatur fokussiert wird */
 .skip-link {
   position: absolute;
-  left: var(--space-2);
-  top: -3rem;
-  padding: var(--space-1) var(--space-2);
-  background: var(--color-surface);
-  color: var(--color-text);
-  border-radius: var(--radius-small);
-  z-index: 10;
+  left: 10px;
+  top: -40px;
+  padding: 8px;
+  background: #ffffff;
+  color: var(--blau);
 }
 
 .skip-link:focus {
-  top: var(--space-1);
+  top: 10px;
 }
 
-/* ---------- Header & Navigation ---------- */
+/* Header */
 .site-header {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-1) var(--space-3);
-  padding: var(--space-2) max(var(--space-2), calc((100% - var(--max-width)) / 2));
-  background: var(--color-header);
-  color: var(--color-on-header);
-}
-
-/* Schmaler Nordlicht-Streifen als Abschluss des Headers */
-.site-header::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--color-aurora), #a78bfa, transparent);
+  background: var(--blau);
+  color: #ffffff;
+  padding: 15px 20px;
+  border-bottom: 5px solid var(--rot);
 }
 
 .site-title {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .site-tagline {
-  margin: 0;
-  color: #b8c7d1;
-  flex: 1;
+  margin: 0 0 10px;
 }
 
 .site-header nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.site-header nav a {
+.site-header nav li {
   display: inline-block;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  color: var(--color-on-header);
-  text-decoration: none;
-  transition: background-color 0.15s ease;
+  margin-right: 15px;
 }
 
-.site-header nav a:hover {
-  background: rgba(255, 255, 255, 0.12);
+.site-header nav a {
+  color: #ffffff;
 }
 
-/* ---------- Layout ---------- */
+/* Hauptbereich */
 main {
-  max-width: var(--max-width);
+  max-width: 1000px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-2) var(--space-5);
-  display: grid;
-  gap: var(--space-5);
+  padding: 20px;
 }
 
 section,
 aside {
-  scroll-margin-top: var(--space-2);
+  margin-bottom: 40px;
 }
 
-/* ---------- Überblick ---------- */
-.intro {
-  display: grid;
-  gap: var(--space-4);
-  align-items: center;
+h1,
+h2 {
+  color: var(--blau);
 }
 
-.lead {
-  font-size: 1.175rem;
-  color: var(--color-muted);
-  max-width: 36rem;
-  margin: var(--space-2) 0 0;
+h3 {
+  margin: 0 0 5px;
 }
 
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-  margin: var(--space-3) 0 0;
-}
-
+/* Überblick */
 .facts div {
-  flex: 1 1 9rem;
-  padding: 0.75rem var(--space-2);
-  border-radius: var(--radius-small);
-  border-left: 4px solid var(--color-accent);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  margin-bottom: 5px;
 }
 
 .facts dt {
-  font-size: 0.85rem;
-  color: var(--color-muted);
+  display: inline;
+  font-weight: bold;
+}
+
+.facts dt::after {
+  content: ': ';
 }
 
 .facts dd {
+  display: inline;
   margin: 0;
-  font-weight: 700;
-  font-size: 1.15rem;
 }
 
 .intro-figure {
-  margin: 0;
+  margin: 20px 0;
 }
 
 .intro-figure svg {
-  display: block;
-  width: 100%;
+  width: 250px;
   height: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--rahmen);
 }
 
 .intro-figure figcaption {
-  margin-top: 0.75rem;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--color-muted);
+  font-size: 14px;
+  color: var(--grau);
 }
 
-/* ---------- Planer: Ziele + Reiseplan ---------- */
-.planner {
-  display: grid;
-  gap: var(--space-4);
-}
-
-/* ---------- Filter ---------- */
+/* Filter */
 .filter {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: var(--space-2);
-  margin: var(--space-3) 0 var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  padding: 15px;
+  margin-bottom: 15px;
+  background: var(--blau-hell);
+  border: 1px solid var(--rahmen);
 }
 
 .filter-field {
-  display: grid;
-  gap: 0.25rem;
-  flex: 1 1 10rem;
-  min-width: 0;
+  display: inline-block;
+  margin: 0 15px 10px 0;
+  vertical-align: bottom;
 }
 
 .filter label {
-  font-weight: 600;
-  font-size: 0.9rem;
+  display: block;
+  font-weight: bold;
 }
 
 .filter input,
 .filter select {
-  font: inherit;
-  width: 100%;
-  height: 2.75rem;
-  padding: 0 0.75rem;
-  border: 1px solid #8a948f;
-  border-radius: var(--radius-small);
-  background: #fff;
-  color: var(--color-text);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.filter input:hover,
-.filter select:hover {
-  border-color: var(--color-primary);
-}
-
-.filter .button {
-  height: 2.75rem;
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid #888888;
 }
 
 .result-count {
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  margin: 0 0 var(--space-2);
+  color: var(--grau);
 }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 .button {
-  font: inherit;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.55rem 1.05rem;
-  border-radius: var(--radius-small);
-  border: 2px solid var(--color-primary);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  padding: 8px 12px;
+  font-size: 15px;
+  color: #ffffff;
+  background: var(--blau);
+  border: 1px solid var(--blau);
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .button:hover {
-  background: var(--color-primary-strong);
-  border-color: var(--color-primary-strong);
+  background: var(--blau-dunkel);
 }
 
 .button-secondary {
-  background: transparent;
-  color: var(--color-primary);
+  color: var(--blau);
+  background: #ffffff;
 }
 
 .button-secondary:hover {
-  background: var(--color-tag);
-  color: var(--color-primary-strong);
+  background: var(--blau-hell);
 }
 
-/* ---------- Karten ---------- */
+/* Karten der Sehenswürdigkeiten */
 .stop-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
-  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .stop-card {
-  --cat: var(--color-primary);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
   height: 100%;
-  padding: var(--space-2) var(--space-2) 1.25rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-top: 5px solid var(--cat);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  padding: 15px;
+  border: 1px solid var(--rahmen);
+  border-radius: 6px;
 }
 
-.stop-card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.stop-card[data-category='Wasserfall'] { --cat: var(--cat-wasserfall); }
-.stop-card[data-category='Gletscher'] { --cat: var(--cat-gletscher); }
-.stop-card[data-category='Küste'] { --cat: var(--cat-kueste); }
-.stop-card[data-category='Geothermie'] { --cat: var(--cat-geothermie); }
-.stop-card[data-category='Nationalpark'] { --cat: var(--cat-nationalpark); }
-.stop-card[data-category='Berg'] { --cat: var(--cat-berg); }
-
-/* Ziel im Reiseplan: Rahmen in Primärfarbe und Badge oben rechts */
 .stop-card.is-planned {
-  border-color: var(--color-primary);
-  border-top-color: var(--cat);
-  box-shadow: 0 0 0 2px var(--color-primary), var(--shadow-sm);
-}
-
-.stop-card.is-planned::after {
-  content: '✓ Im Plan';
-  content: '✓ Im Plan' / '';
-  position: absolute;
-  top: -0.8rem;
-  right: 0.9rem;
-  padding: 0.1rem 0.65rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  border-radius: 999px;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  box-shadow: var(--shadow-sm);
-}
-
-.stop-card header {
-  display: grid;
-  gap: 0.4rem;
+  background: var(--blau-hell);
+  border: 2px solid var(--blau);
 }
 
 .stop-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin: 0;
+  margin: 0 0 10px;
   padding: 0;
   list-style: none;
 }
 
 .stop-tags li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.1rem 0.6rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  border-radius: 999px;
-  background: var(--color-surface-soft);
-  color: var(--color-text);
-}
-
-/* Kategorie-Tag mit farbigem Punkt */
-.stop-tags li:last-child::before {
-  content: '';
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: var(--cat);
+  display: inline-block;
+  margin-right: 5px;
+  padding: 2px 8px;
+  font-size: 13px;
+  background: #eeeeee;
+  border-radius: 10px;
 }
 
 .stop-card p {
-  margin: 0;
+  margin: 0 0 10px;
 }
 
 .stop-meta {
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  padding-top: 0.6rem;
-  border-top: 1px dashed var(--color-border);
-}
-
-.stop-card .button {
-  margin-top: auto;
-  align-self: flex-start;
+  font-size: 14px;
+  color: var(--grau);
 }
 
 .no-results {
-  grid-column: 1 / -1;
-  padding: var(--space-3);
-  text-align: center;
-  background: var(--color-surface);
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius);
+  padding: 15px;
+  border: 1px solid var(--rahmen);
 }
 
-/* ---------- Reiseplan ---------- */
+/* Reiseplan */
 .plan {
-  padding: var(--space-3);
-  border-radius: var(--radius);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-top: 5px solid var(--color-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.plan h2 {
-  font-size: 1.6rem;
-}
-
-.plan-empty {
-  margin: var(--space-2) 0 0;
-  padding: var(--space-2);
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  text-align: center;
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius-small);
-}
-
-.plan-list {
-  margin: var(--space-2) 0;
-  padding-left: 1.6rem;
+  padding: 15px 20px;
+  border: 2px solid var(--blau);
+  border-radius: 6px;
 }
 
 .plan-list li {
-  padding: 0.4rem 0;
-  border-bottom: 1px solid var(--color-border);
-  font-size: 0.95rem;
-}
-
-.plan-list li::marker {
-  color: var(--color-primary);
-  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .plan-list li span {
-  color: var(--color-muted);
-  font-size: 0.85rem;
-}
-
-.plan-summary {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-1);
-  margin: 0 0 var(--space-2);
+  color: var(--grau);
 }
 
 .plan-summary div {
-  padding: 0.6rem 0.75rem;
-  border-radius: var(--radius-small);
-  background: var(--color-surface-soft);
+  display: inline-block;
+  min-width: 140px;
+  margin: 0 10px 10px 0;
+  padding: 8px 12px;
+  background: var(--blau-hell);
 }
 
 .plan-summary dt {
-  font-size: 0.8rem;
-  color: var(--color-muted);
+  font-size: 14px;
 }
 
 .plan-summary dd {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--color-primary-strong);
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--blau);
 }
 
-/* ---------- Tipps ---------- */
+.plan-empty {
+  color: var(--grau);
+}
+
+/* Tipps */
 .tips {
-  padding: var(--space-4) var(--space-3);
-  border-radius: var(--radius);
-  background: var(--color-header);
-  color: var(--color-on-header);
-  box-shadow: var(--shadow-md);
-}
-
-.tips ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: var(--space-2);
-  margin: var(--space-3) 0 0;
-  padding: 0;
-  list-style: none;
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-left: 5px solid var(--rot);
 }
 
 .tips li {
-  padding: var(--space-2);
-  border-radius: var(--radius-small);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.95rem;
+  margin-bottom: 8px;
 }
 
-.tips strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--color-aurora);
-  font-size: 1rem;
-}
-
-/* ---------- Footer ---------- */
+/* Footer */
 .site-footer {
-  padding: var(--space-3) var(--space-2);
+  padding: 15px;
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  border-top: 1px solid var(--color-border);
+  font-size: 14px;
+  color: #ffffff;
+  background: var(--blau);
 }
 
 .site-footer p {
-  margin: 0.25rem 0;
-}
-
-/* ---------- Responsive ---------- */
-@media (min-width: 48rem) {
-  .intro {
-    grid-template-columns: 1.05fr 1fr;
-  }
-}
-
-/* Ab 64rem steht der Reiseplan neben der Liste und bleibt beim Scrollen sichtbar */
-@media (min-width: 64rem) {
-  .planner {
-    grid-template-columns: minmax(0, 1fr) 20rem;
-    align-items: start;
-  }
-
-  .plan {
-    position: sticky;
-    top: var(--space-2);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  .stop-card:hover {
-    transform: translateY(-2px);
-  }
+  margin: 5px 0;
 }
