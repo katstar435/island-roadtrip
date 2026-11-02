@@ -193,4 +193,14 @@ export const STOPS: Stop[] = [
     distanceFromReykjavikKm: 450,
     visitHours: 1.5,
   },
+  {
+    id: 'snaefellsjokull',
+    name: 'Snæfellsjökull-Nationalpark',
+    region: 'Westen',
+    category: 'Nationalpark',
+    description:
+      'Gletscherbedeckter Vulkan an der Spitze der Halbinsel Snæfellsnes, mit Lavafeldern und Steilküste.',
+    distanceFromReykjavikKm: 200,
+    visitHours: 3,
+  },
 ];
