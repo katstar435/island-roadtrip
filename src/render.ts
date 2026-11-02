@@ -30,6 +30,7 @@ export function createStopCard(stop: Stop, isPlanned: boolean): HTMLLIElement {
   const article = createElement('article', isPlanned ? 'stop-card is-planned' : 'stop-card');
   const headingId = `ziel-${stop.id}`;
   article.setAttribute('aria-labelledby', headingId);
+  article.dataset.category = stop.category;
 
   const header = createElement('header');
   const heading = createElement('h3', undefined, stop.name);
@@ -50,13 +51,13 @@ export function createStopCard(stop: Stop, isPlanned: boolean): HTMLLIElement {
   const button = createElement(
     'button',
     isPlanned ? 'button button-secondary' : 'button',
-    isPlanned ? 'Aus dem Reiseplan entfernen' : 'Zum Reiseplan hinzufügen',
+    isPlanned ? 'Aus dem Plan entfernen' : 'Zum Plan hinzufügen',
   );
   button.type = 'button';
   button.dataset.stopId = stop.id;
   button.setAttribute(
     'aria-label',
-    isPlanned ? `${stop.name} aus dem Reiseplan entfernen` : `${stop.name} zum Reiseplan hinzufügen`,
+    isPlanned ? `${stop.name} aus dem Plan entfernen` : `${stop.name} zum Plan hinzufügen`,
   );
 
   article.append(header, description, meta, button);

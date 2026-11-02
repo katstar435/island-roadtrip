@@ -51,7 +51,7 @@ wird nur als reiner Layout-Container ohne Bedeutung verwendet.
 - `nav` mit `aria-label="Hauptnavigation"`, Skip-Link zum Hauptinhalt, `lang="de"`
 - Sections über `aria-labelledby` mit ihren Überschriften verknüpft
 - Trefferanzahl und Reiseplan-Zusammenfassung als `aria-live="polite"`, damit Screenreader Änderungen ansagen
-- Buttons in den Karten haben ein `aria-label` mit dem Namen des Ziels, z. B. „Gullfoss zum Reiseplan hinzufügen“
+- Buttons in den Karten haben ein `aria-label` mit dem Namen des Ziels, z. B. „Gullfoss zum Plan hinzufügen“
 - Nach einem Klick bleibt der Tastaturfokus auf dem Button derselben Karte, obwohl die Liste neu gezeichnet wird
 - Die SVG-Illustration hat `role="img"` und einen `title`
 - Sichtbarer Fokusrahmen über `:focus-visible`, Farbkontraste nach WCAG AA
@@ -66,6 +66,13 @@ wird nur als reiner Layout-Container ohne Bedeutung verwendet.
 **Trennung von Logik und Darstellung.** `logic.ts` enthält nur reine Funktionen ohne DOM-Zugriff.
 Sie sind dadurch leicht nachvollziehbar und testbar. `render.ts` erzeugt Elemente mit
 `createElement` und `textContent` statt `innerHTML`, so wird kein Text als HTML interpretiert.
+
+**Gestaltung nur mit CSS.** Jede Kategorie hat eine eigene Akzentfarbe (Linie oben an der Karte und
+Punkt im Tag). Die Karte bekommt dafür nur ein `data-category`-Attribut, die Farbe selbst steht im CSS.
+Die Farben werden nur für Flächen und Linien verwendet, nie als einzige Information: die Kategorie steht
+immer auch als Text daneben. Ab 64rem Breite steht der Reiseplan neben der Liste und bleibt per
+`position: sticky` beim Scrollen sichtbar. Hover-Bewegungen sind nur aktiv, wenn im System keine
+reduzierte Bewegung eingestellt ist (`prefers-reduced-motion`).
 
 **Keine externen Abhängigkeiten zur Laufzeit.** Die Illustration ist ein Inline-SVG, Schriften kommen
 aus dem System-Font-Stack. Die Seite lädt dadurch schnell und funktioniert ohne Netzwerkzugriff auf
