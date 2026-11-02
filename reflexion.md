@@ -4,7 +4,7 @@ SED502 Frontend Development · Teresa · November 2026
 
 ## Thema und Motivation
 
-Ich habe einen Roadtrip-Planer für die isländische Ringstraße gebaut, weil ich für 2027 selbst eine Island-Reise plane. Das Thema eignet sich gut für Interaktivität: Sehenswürdigkeiten lassen sich als klar strukturierte Daten beschreiben, filtern und zu einem Reiseplan zusammenfassen.
+Ich habe 2026 eine Reise nach Island gemacht, weshalb dies mein Thema wurde. Entstanden ist ein Roadtrip-Planer für die isländische Ringstraße. Das Thema eignet sich gut für Interaktivität: Sehenswürdigkeiten lassen sich als klar strukturierte Daten beschreiben, filtern und zu einem Reiseplan zusammenfassen. Ich entschied mich, das Design schlicht in den Farben von Island zu halten: Blau, Weiß und Rot aus der isländischen Flagge.
 
 ## Schwierigste technische Entscheidung
 
@@ -18,4 +18,4 @@ Eine zweite Entscheidung war die Trennung in reine Logikfunktionen (`logic.ts`) 
 - MDN Web Docs zu semantischen Elementen und ARIA
 - Chrome Lighthouse für den Accessibility-Audit
 
-Als AI-Tool habe ich Claude (Anthropic) eingesetzt. Claude hat auf Basis der Aufgabenstellung die Projektstruktur, große Teile des HTML-, CSS- und TypeScript-Codes, die README und einen Entwurf dieses Berichts erstellt. Ich habe den Code danach Zeile für Zeile durchgearbeitet, im Browser getestet und die Texte an meine Sicht angepasst. Gemäß der Grundregel des Kurses habe ich nur Code übernommen, den ich erklären kann.
+Als AI-Tool habe ich Claude (Anthropic) eingesetzt. Claude hat auf Basis der Aufgabenstellung die Projektstruktur, große Teile des HTML-, CSS- und TypeScript-Codes, die README und einen Entwurf dieses Berichts erstellt. Den Code bin ich anschließend gemeinsam mit Claude Schritt für Schritt durchgegangen, habe ihn im Browser getestet und die Texte an meine Sicht angepasst. Gemäß der Grundregel des Kurses habe ich nur Code übernommen, den ich erklären kann.
