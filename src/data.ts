@@ -183,4 +183,14 @@ export const STOPS: Stop[] = [
     distanceFromReykjavikKm: 490,
     visitHours: 1,
   },
+  {
+    id: 'vestrahorn',
+    name: 'Vestrahorn',
+    region: 'Südosten',
+    category: 'Berg',
+    description:
+      'Zackiger Berg auf der Halbinsel Stokksnes bei Höfn, davor schwarze Sanddünen. Der Zugang kostet eine kleine Gebühr.',
+    distanceFromReykjavikKm: 450,
+    visitHours: 1.5,
+  },
 ];
