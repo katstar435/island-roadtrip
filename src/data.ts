@@ -173,4 +173,14 @@ export const STOPS: Stop[] = [
     distanceFromReykjavikKm: 160,
     visitHours: 2,
   },
+  {
+    id: 'hverir',
+    name: 'Hverir',
+    region: 'Norden',
+    category: 'Geothermie',
+    description:
+      'Brodelnde Schlammtöpfe und zischende Dampfquellen am Fuß des Námafjall. Es riecht stark nach Schwefel.',
+    distanceFromReykjavikKm: 490,
+    visitHours: 1,
+  },
 ];
