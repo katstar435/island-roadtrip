@@ -263,11 +263,6 @@ section {
   color: var(--color-primary-strong);
 }
 
-.button[aria-pressed='true'] {
-  background: var(--color-surface);
-  color: var(--color-primary-strong);
-}
-
 /* ---------- Karten ---------- */
 .stop-list {
   display: grid;
