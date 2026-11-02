@@ -153,4 +153,14 @@ export const STOPS: Stop[] = [
     distanceFromReykjavikKm: 180,
     visitHours: 1,
   },
+  {
+       id: 'hraunfossar',
+       name: 'Hraunfossar',
+       region: 'Westen',
+       category: 'Wasserfall',
+       description:
+         'Unzählige kleine Wasserfälle treten direkt aus einem Lavafeld hervor und fließen in den türkisen Fluss Hvítá.',
+       distanceFromReykjavikKm: 130,
+       visitHours: 1,
+     },
 ];
