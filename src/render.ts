@@ -1,5 +1,6 @@
+import { REGIONS } from './data.ts';
 import { formatHours } from './logic.ts';
-import type { Stop } from './types.ts';
+import type { PlanSummary, Stop } from './types.ts';
 
 /** Erstellt ein Element mit optionaler CSS-Klasse und Textinhalt. */
 function createElement<K extends keyof HTMLElementTagNameMap>(
@@ -80,4 +81,36 @@ export function renderStopList(
   }
   const cards = stops.map((stop) => createStopCard(stop, plannedIds.has(stop.id)));
   container.replaceChildren(...cards);
+}
+
+/** Zeichnet die geordnete Liste der geplanten Ziele. */
+export function renderPlanList(container: HTMLOListElement, plan: Stop[]): void {
+  const items = plan.map((stop) => {
+    const item = createElement('li');
+    const name = createElement('strong', undefined, stop.name);
+    const details = createElement('span', undefined, ` · ${stop.region} · ${formatHours(stop.visitHours)}`);
+    item.append(name, details);
+    return item;
+  });
+  container.replaceChildren(...items);
+}
+
+/** Zeigt die Kennzahlen des Reiseplans als Beschreibungsliste an. */
+export function renderPlanSummary(container: HTMLElement, summary: PlanSummary): void {
+  if (summary.stopCount === 0) {
+    container.replaceChildren();
+    return;
+  }
+  const entries: [string, string][] = [
+    ['Ziele', String(summary.stopCount)],
+    ['Aufenthalt gesamt', formatHours(summary.totalVisitHours)],
+    ['Regionen', `${summary.regionCount} von ${REGIONS.length}`],
+    ['Weitester Punkt', summary.farthestStop?.name ?? '–'],
+  ];
+  const groups = entries.map(([label, value]) => {
+    const group = createElement('div');
+    group.append(createElement('dt', undefined, label), createElement('dd', undefined, value));
+    return group;
+  });
+  container.replaceChildren(...groups);
 }
