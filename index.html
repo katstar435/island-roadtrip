@@ -26,11 +26,161 @@
     </header>
 
     <main id="inhalt">
-      <h1>Island-Roadtrip entlang der Ringstraße</h1>
+      <section id="ueberblick" class="intro" aria-labelledby="ueberblick-titel">
+        <div class="intro-text">
+          <h1 id="ueberblick-titel">Island-Roadtrip entlang der Ringstraße</h1>
+          <p class="lead">
+            Die Ringstraße (isländisch <span lang="is">Hringvegur</span>) führt einmal rund
+            um die Insel. Wasserfälle, Gletscherlagunen und schwarze Strände liegen oft nur
+            wenige Minuten von der Straße entfernt. Wähle die Ziele, die dich interessieren,
+            und stelle deinen eigenen Reiseplan zusammen.
+          </p>
+          <dl class="facts">
+            <div>
+              <dt>Länge der Ringstraße</dt>
+              <dd>ca. 1.320 km</dd>
+            </div>
+            <div>
+              <dt>Empfohlene Reisedauer</dt>
+              <dd>7 bis 14 Tage</dd>
+            </div>
+            <div>
+              <dt>Start und Ziel</dt>
+              <dd>Reykjavík</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="intro-figure">
+          <svg
+            viewBox="0 0 480 320"
+            role="img"
+            aria-labelledby="landschaft-titel"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title id="landschaft-titel">
+              Illustration einer isländischen Landschaft mit Nordlicht, Bergen und Wasserfall
+            </title>
+            <defs>
+              <linearGradient id="himmel" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0d1b2a" />
+                <stop offset="1" stop-color="#1f3a4d" />
+              </linearGradient>
+              <linearGradient id="nordlicht" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#5eead4" stop-opacity="0" />
+                <stop offset="0.5" stop-color="#5eead4" stop-opacity="0.75" />
+                <stop offset="1" stop-color="#a78bfa" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <rect width="480" height="320" fill="url(#himmel)" />
+            <path
+              d="M-10 110 C 90 40, 180 150, 280 80 S 430 60, 500 100"
+              fill="none"
+              stroke="url(#nordlicht)"
+              stroke-width="26"
+              stroke-linecap="round"
+            />
+            <path
+              d="M-10 140 C 110 90, 200 170, 300 115 S 440 100, 500 130"
+              fill="none"
+              stroke="url(#nordlicht)"
+              stroke-width="10"
+              stroke-linecap="round"
+              opacity="0.6"
+            />
+            <circle cx="60" cy="40" r="1.6" fill="#e2e8f0" />
+            <circle cx="150" cy="25" r="1.2" fill="#e2e8f0" />
+            <circle cx="390" cy="35" r="1.5" fill="#e2e8f0" />
+            <circle cx="440" cy="150" r="1.1" fill="#e2e8f0" />
+            <circle cx="250" cy="30" r="1" fill="#e2e8f0" />
+            <polygon points="0,320 0,215 70,165 140,220 205,150 290,225 360,170 480,235 480,320" fill="#2b3a42" />
+            <polygon points="70,165 92,181 78,184 60,173" fill="#e2e8f0" />
+            <polygon points="205,150 230,168 214,172 190,161" fill="#e2e8f0" />
+            <polygon points="360,170 384,186 368,189 347,180" fill="#e2e8f0" />
+            <polygon points="0,320 0,262 120,238 230,268 340,240 480,272 480,320" fill="#1b2a2f" />
+            <rect x="300" y="236" width="14" height="52" fill="#bae6fd" opacity="0.85" />
+            <ellipse cx="307" cy="290" rx="30" ry="6" fill="#bae6fd" opacity="0.5" />
+          </svg>
+          <figcaption>
+            Nordlicht über dem Hochland: zwischen September und April mit etwas Glück sichtbar.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="ziele" aria-labelledby="ziele-titel">
+        <h2 id="ziele-titel">Sehenswürdigkeiten</h2>
+        <p>
+          Filtere nach Region oder Kategorie und füge Ziele mit einem Klick zu deinem
+          Reiseplan hinzu.
+        </p>
+
+        <form class="filter" id="filter-form" role="search" aria-label="Sehenswürdigkeiten filtern">
+          <div class="filter-field">
+            <label for="filter-suche">Suche</label>
+            <input type="search" id="filter-suche" name="suche" placeholder="z. B. Gletscher" autocomplete="off" />
+          </div>
+          <div class="filter-field">
+            <label for="filter-region">Region</label>
+            <select id="filter-region" name="region">
+              <option value="alle">Alle Regionen</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="filter-kategorie">Kategorie</label>
+            <select id="filter-kategorie" name="kategorie">
+              <option value="alle">Alle Kategorien</option>
+            </select>
+          </div>
+          <button type="reset" class="button button-secondary">Filter zurücksetzen</button>
+        </form>
+
+        <p class="result-count" id="ergebnis-anzahl" aria-live="polite"></p>
+        <ul class="stop-list" id="ziele-liste"></ul>
+      </section>
+
+      <div class="plan-layout">
+        <section id="reiseplan" class="plan" aria-labelledby="reiseplan-titel">
+          <h2 id="reiseplan-titel">Mein Reiseplan</h2>
+          <p class="plan-empty" id="plan-leer">
+            Noch keine Ziele ausgewählt. Füge oben Sehenswürdigkeiten hinzu.
+          </p>
+          <ol class="plan-list" id="plan-liste"></ol>
+          <dl class="plan-summary" id="plan-zusammenfassung" aria-live="polite"></dl>
+          <button type="button" class="button button-secondary" id="plan-leeren" hidden>
+            Reiseplan leeren
+          </button>
+        </section>
+
+        <aside id="tipps" class="tips" aria-labelledby="tipps-titel">
+          <h2 id="tipps-titel">Tipps für die Ringstraße</h2>
+          <ul>
+            <li>
+              <strong>Wetter prüfen:</strong> Straßenzustand und Wetterwarnungen täglich vor
+              der Abfahrt kontrollieren.
+            </li>
+            <li>
+              <strong>Tanken:</strong> Im Osten und Norden liegen Tankstellen teils weit
+              auseinander. Lieber früher nachtanken.
+            </li>
+            <li>
+              <strong>F-Straßen:</strong> Hochlandpisten sind nur im Sommer geöffnet und nur mit
+              Allradfahrzeug erlaubt.
+            </li>
+            <li>
+              <strong>Strände:</strong> An der Südküste können unerwartet hohe Wellen auftreten.
+              Abstand zum Wasser halten.
+            </li>
+          </ul>
+        </aside>
+      </div>
     </main>
 
     <footer class="site-footer">
       <p>Studienprojekt im Modul SED502 Frontend Development, FernFH.</p>
+      <p>
+        Entfernungen und Aufenthaltsdauern sind gerundete Richtwerte und ersetzen keine
+        aktuelle Reiseplanung.
+      </p>
     </footer>
 
     <script type="module" src="/src/main.ts"></script>
