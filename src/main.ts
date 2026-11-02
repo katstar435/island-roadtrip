@@ -1,1 +1,1 @@
-console.log('Island Roadtrip gestartet');
+import './style.css';
