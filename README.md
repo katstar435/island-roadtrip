@@ -2,7 +2,7 @@
 
 Kleine statische Webseite für ESA 1 im Modul **SED502 Frontend Development** (FernFH).
 
-Die Seite stellt 14 Sehenswürdigkeiten entlang der isländischen Ringstraße vor. Besucherinnen und
+Die Seite stellt 19 Sehenswürdigkeiten entlang der isländischen Ringstraße vor. Besucherinnen und
 Besucher können die Ziele nach Region, Kategorie und Freitext filtern und per Klick zu einem
 eigenen Reiseplan hinzufügen. Der Reiseplan zeigt laufend, wie viele Ziele ausgewählt sind, wie
 viel Aufenthaltszeit sich daraus ergibt, wie viele Regionen abgedeckt werden und welcher Punkt am
