@@ -163,4 +163,14 @@ export const STOPS: Stop[] = [
        distanceFromReykjavikKm: 130,
        visitHours: 1,
      },
+  {
+    id: 'solheimajokull',
+    name: 'Sólheimajökull',
+    region: 'Süden',
+    category: 'Gletscher',
+    description:
+      'Gletscherzunge des Mýrdalsjökull, die man zu Fuß bis zur Eiskante erreicht. Aufs Eis nur mit geführter Tour.',
+    distanceFromReykjavikKm: 160,
+    visitHours: 2,
+  },
 ];
